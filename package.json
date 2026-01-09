@@ -1,0 +1,10 @@
+{
+  "name": "twitch-ad-crusher-api",
+  "version": "1.0.0",
+  "description": "Backend API for Twitch Ad Crusher Pro",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "stripe": "^14.10.0"
+  }
+}
