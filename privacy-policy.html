@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Twitch Ad Crusher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0e0e10 0%, #18181b 50%, #1f1f23 100%);
+            color: #efeff1;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(145, 71, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(145, 71, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb.purple {
+            width: 400px;
+            height: 400px;
+            background: rgba(145, 71, 255, 0.15);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb.cyan {
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 240, 255, 0.08);
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #9147ff, #00f0ff);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 40px rgba(145, 71, 255, 0.4);
+        }
+
+        .logo svg {
+            width: 44px;
+            height: 44px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #bf94ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #adadb8;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: rgba(38, 38, 44, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(145, 71, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #9147ff, #772ce8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 .icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        p {
+            color: #d3d3d8;
+            margin-bottom: 16px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #d3d3d8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #9147ff, #00f0ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        li::after {
+            content: '✓';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            color: white;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(145, 71, 255, 0.2), rgba(0, 240, 255, 0.1));
+            border: 1px solid rgba(145, 71, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #efeff1;
+            font-weight: 500;
+        }
+
+        a {
+            color: #bf94ff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #00f0ff;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #9147ff, #772ce8);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-box p {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .contact-box a {
+            color: white;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #71717a;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(145, 71, 255, 0.2);
+            border: 1px solid rgba(145, 71, 255, 0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            color: #bf94ff;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="glow-orb purple"></div>
+    <div class="glow-orb cyan"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                </svg>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Twitch Ad Crusher Chrome Extension</p>
+            <div class="badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                Your Privacy Matters
+            </div>
+        </header>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4M12 8h.01"/>
+                    </svg>
+                </span>
+                Overview
+            </h2>
+            <p>Twitch Ad Crusher is committed to protecting your privacy. This extension is designed to block ads on Twitch.tv while keeping your personal data safe and secure.</p>
+            <div class="highlight">
+                <p>🛡️ We collect minimal data and never sell your information to third parties.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                </span>
+                Data We Collect
+            </h2>
+            <p>Our extension collects only the minimum data necessary to function:</p>
+            <ul>
+                <li><strong>Ad Blocking Statistics</strong> — Number of ads blocked and time saved, stored locally on your device</li>
+                <li><strong>Extension Settings</strong> — Your preferences such as enabled/disabled state, stored locally</li>
+                <li><strong>License Information (Pro users)</strong> — Email address and license key for Pro activation only</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </span>
+                Data We DO NOT Collect
+            </h2>
+            <p>We respect your privacy and do not collect:</p>
+            <ul>
+                <li>Your Twitch username or account information</li>
+                <li>Your viewing history or watch time</li>
+                <li>The channels or streams you visit</li>
+                <li>Any personal browsing data outside of Twitch</li>
+                <li>Chat messages or interactions</li>
+                <li>IP addresses or location data</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                        <line x1="6" y1="6" x2="6.01" y2="6"/>
+                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                    </svg>
+                </span>
+                Data Storage
+            </h2>
+            <p>All extension data is stored locally on your device using Chrome's built-in storage API. Your statistics and preferences never leave your browser unless you choose to purchase Pro, in which case only your email and license key are transmitted securely to our servers for validation.</p>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </span>
+                Third-Party Services
+            </h2>
+            <p>For Pro users, we use the following trusted services:</p>
+            <ul>
+                <li><strong>Stripe</strong> — For secure payment processing</li>
+                <li><strong>Supabase</strong> — For license key storage and validation</li>
+            </ul>
+            <p>These services have their own privacy policies and are industry-standard for security.</p>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                </span>
+                Permissions Used
+            </h2>
+            <p>The extension requires the following permissions to function:</p>
+            <ul>
+                <li><strong>storage</strong> — To save your settings and statistics locally</li>
+                <li><strong>Host permissions (twitch.tv)</strong> — To detect and block ads on Twitch pages</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </span>
+                Contact Us
+            </h2>
+            <p>If you have any questions about this privacy policy or our data practices, please contact us:</p>
+            <div class="contact-box">
+                <p>📧 Email us anytime</p>
+                <a href="mailto:chromapicker@gmail.com">chromapicker@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                </span>
+                Updates to This Policy
+            </h2>
+            <p>We may update this privacy policy from time to time. Any changes will be reflected on this page with an updated revision date. Continued use of the extension after changes constitutes acceptance of the updated policy.</p>
+            <p><strong>Last updated:</strong> January 2025</p>
+        </div>
+
+        <footer>
+            <p>© 2025 Tyler Flowers. All rights reserved.</p>
+            <p style="margin-top: 8px;">Made with 💜 for the Twitch community</p>
+        </footer>
+    </div>
+</body>
+</html>
